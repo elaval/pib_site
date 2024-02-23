@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>PIB per capita | Hello Framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,alt,wide.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,alt,wide.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="./_import/components/config.js?sha=308f564bbae06a297a8d69c910be01e2e7371bca970da2e05315a5827d2e2225">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.13/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/binary-search-bounds@2.0.5/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-axis@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-brush@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-chord@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-color@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-contour@4.0.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-dispatch@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-drag@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-dsv@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-ease@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-fetch@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-force@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-format@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-geo@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-hierarchy@3.1.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-interpolate@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-path@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-polygon@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-quadtree@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-random@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-scale@4.0.2/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-selection@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-shape@3.2.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-time-format@4.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-time@3.1.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-timer@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-transition@3.0.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3-zoom@3.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/d3@7.8.5/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/delaunator@5.0.0/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/htl@0.3.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/internmap@2.0.3/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/interval-tree-1d@1.0.4/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/isoformat@0.2.1/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/lodash@4.17.21/+esm">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/robust-predicates@3.0.2/+esm">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+
+define({id: "c0f23bb4", inline: true, inputs: ["referenceYear","display"], body: async (referenceYear,display) => {
+display(await(
+referenceYear
+))
+}});
+
+define({id: "f1ac4c8b", inputs: ["d3"], outputs: ["es_ES"], body: async (d3) => {
+const {es_ES} = await import("./_import/components/config.js?sha=308f564bbae06a297a8d69c910be01e2e7371bca970da2e05315a5827d2e2225");
+d3.formatDefaultLocale(es_ES);
+return {es_ES};
+}});
+
+define({id: "9b9d4c8e", inputs: ["FileAttachment"], outputs: ["data"], files: [{"name":"./data/dataPIBPerCapita.tsv","mimeType":"text/tab-separated-values","path":"./_file/data/dataPIBPerCapita.tsv"}], body: (FileAttachment) => {
+const data = FileAttachment("./data/dataPIBPerCapita.tsv").tsv();
+return {data};
+}});
+
+define({id: "eb9ebf7d", inputs: ["view","Inputs"], outputs: ["referenceYear"], body: (view,Inputs) => {
+const referenceYear = view(Inputs.range([2000, 2022], {
+  label: "Año de referencia",
+  step: 1,
+  value: 2013
+}));
+
+
+return {referenceYear};
+}});
+
+define({id: "a8229288", inputs: ["view","Inputs","referenceYear"], outputs: ["comparisonYear"], body: (view,Inputs,referenceYear) => {
+const comparisonYear = view(Inputs.range([referenceYear, 2022], {
+  label: "Año de comparación",
+  step: 1,
+  value: 2022
+}));
+
+return {comparisonYear};
+}});
+
+define({id: "c54cd443", inputs: ["view","Inputs"], outputs: ["umbralDiferencia"], body: (view,Inputs) => {
+const umbralDiferencia = view(Inputs.range([0,30], {
+  label: "Umbral de diferencia (%) para considerar paises como similares",
+  step: 1,
+  value: 10
+}));
+return {umbralDiferencia};
+}});
+
+define({id: "cccca586", inputs: ["umbralDiferencia","data","referenceYear","_","comparisonYear"], outputs: ["windowDiff","referenceIncome","dataPlot","similarCountries","dataSimilar","dataSimilarPorPais"], body: (umbralDiferencia,data,referenceYear,_,comparisonYear) => {
+const windowDiff = umbralDiferencia / 100;
+
+const referenceIncome = data.find(
+  (d) => d["countryCode"] == "CHL" && d.year == referenceYear
+)["value"];
+
+const dataPlot = data.filter((d) => d.year == referenceYear);
+
+const similarCountries = data
+  .filter(
+    (d) =>
+      d.year == referenceYear &&
+      d.value >= referenceIncome * (1 - windowDiff) &&
+      d.value <= referenceIncome * (1 + windowDiff)
+  )
+  .map((d) => d["countryCode"]);
+
+const dataSimilar = data.filter((d) => similarCountries.includes(d.countryCode));
+
+const dataSimilarPorPais = _.chain(dataSimilar)
+.groupBy(d => d.country)
+.map((items,key) => {
+  return {
+    country:key,
+    targetValue: items.find(d => d.year == referenceYear)["value"],
+    comparisonValue: items.find(d => d.year == comparisonYear) && items.find(d => d.year == comparisonYear)["value"] || null,    
+  }
+}).value();
+
+  dataSimilarPorPais.forEach(d => {
+    d.growth = d.comparisonValue && d.targetValue ? d.comparisonValue/d.targetValue - 1 : null
+  })
+
+return {windowDiff,referenceIncome,dataPlot,similarCountries,dataSimilar,dataSimilarPorPais};
+}});
+
+define({id: "76cfdafe", inputs: ["_","data","referenceYear","comparisonYear"], outputs: ["data_reference_comparison"], body: (_,data,referenceYear,comparisonYear) => {
+const data_reference_comparison = _.chain(data)
+  .filter((d) => d.year == referenceYear || d.year == comparisonYear)
+  .groupBy((d) => d.countryCode)
+  .map((items, key) => {
+    const record = {
+      country: items[0].country,
+      countryCode: items[0].countryCode
+    };
+    items.forEach((d) => {
+      record[d.year] = +d.value;
+    });
+
+    return record;
+  })
+  .filter((d) => d[referenceYear] && d[comparisonYear])
+  .value()
+
+
+return {data_reference_comparison};
+}});
+
+define({id: "897fbb0b", inputs: ["data_reference_comparison"], outputs: ["chileRecord"], body: (data_reference_comparison) => {
+const chileRecord = data_reference_comparison.find((d) => d.countryCode == "CHL")
+return {chileRecord};
+}});
+
+define({id: "ccbbe8db", inputs: ["chileRecord","comparisonYear","referenceYear"], outputs: ["chileGrowth"], body: (chileRecord,comparisonYear,referenceYear) => {
+const chileGrowth = chileRecord[comparisonYear] / chileRecord[referenceYear]
+return {chileGrowth};
+}});
+
+define({id: "d26c9743", inputs: ["Plot","width","referenceYear","dataSimilar","d3"], outputs: ["plot1"], body: (Plot,width,referenceYear,dataSimilar,d3) => {
+const plot1 = Plot.plot({
+  title: `Evolucion de PIB per cápita entre 2000 y 2022`,
+
+  width:width,
+  marginLeft: 50,
+  marginRight: 100,
+  y: { type: "log" ,label:'PIB per cápita, PPA (2017 const.)'},
+  x: { type: "linear" ,label:'Año'},
+
+  marks: [
+    Plot.ruleY([0]),
+    Plot.ruleX([referenceYear]),
+    Plot.lineY(dataSimilar, {
+      x: d => +d["year"],
+      y: d => +d["value"],
+      z: "country",
+      stroke: (d) => (d.country == "Chile" ? "blue" : "lightgrey"),
+      strokeWidth: d => (d.countryCode == "CHL" ? 2 : 1),
+      sort: (d) => /Chile/.test(d.country),
+      tip:true,
+      title: d => `${d.country} (${d.year}): ${d3.format("$,d")(d.value)}`
+    }),
+    Plot.text(
+      dataSimilar,
+      Plot.selectLast({
+        x: "year",
+        y: "value",
+        z: "country",
+        text: "country",
+        textAnchor: "start",
+        fill: (d) => (d.countryCode == "CHL" ? "blue" : "grey"),
+        dx: 5,
+      sort: (d) => /Chile/.test(d.country),
+        fontWeight: "bold"
+      })
+    )
+  ]
+})
+return {plot1};
+}});
+
+define({id: "6c4604eb", inputs: ["dataSimilar","referenceYear","comparisonYear"], outputs: ["dataPlotReference","dataPlotComparison"], body: (dataSimilar,referenceYear,comparisonYear) => {
+  const dataPlotReference = dataSimilar.filter((d) => d.year == referenceYear);
+  const dataPlotComparison = dataSimilar.filter((d) => d.year == comparisonYear);
+
+return {dataPlotReference,dataPlotComparison};
+}});
+
+define({id: "d3900913", inputs: ["Plot","referenceYear","dataPlotReference"], outputs: ["pTarget"], body: (Plot,referenceYear,dataPlotReference) => {
+const pTarget = Plot.plot({
+    title: `PIB per cápita ${referenceYear}`,
+
+    marginLeft: 150,
+    marks: [
+      Plot.barX(dataPlotReference, {
+        x: "value",
+        y: "country",
+        sort: { y: "x", reverse: true },
+        fill: (d) => (d.countryCode == "CHL" ? "blue" : "grey")
+      }),
+      Plot.ruleX([0])
+    ]
+})
+return {pTarget};
+}});
+
+define({id: "b61ec4da", inputs: ["Plot","referenceYear","width","_","dataPlotComparison","dataPlotReference","comparisonYear"], outputs: ["p2022"], body: (Plot,referenceYear,width,_,dataPlotComparison,dataPlotReference,comparisonYear) => {
+const p2022 = Plot.plot({
+  title: `PIB per cápita en ${referenceYear}`,
+    marginLeft: 150,
+    width:width,
+    color:{legend:true, range:["orange"]},
+    x:{label:'PIB per cápita, PPA (2017 const.)', grid:true},
+    y:{label:'País', domain:_.chain(dataPlotComparison).sortBy(d => +d.value).map(d => d.country).value()},
+    marks: [
+      Plot.barX(dataPlotReference, {
+        x: "value",
+        y: "country",
+        sort: { y: "x", reverse: true },
+        fill: (d) => (d.countryCode == "CHL" ? "blue" : "lightgrey")
+      }),
+      Plot.tickX(dataPlotComparison, {
+        x: d => +d["value"],
+        y: "country",
+        sort: { y: "x", reverse: true },
+        stroke: d => `Referencia ${comparisonYear}`,
+        strokeWidth:3
+      }),
+      Plot.ruleX([0])
+    ]
+})
+return {p2022};
+}});
+
+define({id: "c6c24b40", inputs: ["Plot","comparisonYear","referenceYear","chileGrowth","data_reference_comparison","chileRecord"], outputs: ["plotBubble"], body: (Plot,comparisonYear,referenceYear,chileGrowth,data_reference_comparison,chileRecord) => {
+const plotBubble = Plot.plot({
+  title:`PIB per capita en ${comparisonYear} vs ${referenceYear}` ,
+  x: { type: "log" , label:`PIB per capita en ${referenceYear}`},
+  y: { type: "log" , label:`PIB per capita en ${comparisonYear}`},
+  marks: [
+    Plot.line(
+      [
+        { x: 10000, y: 10000 * chileGrowth },
+        { x: 100000, y: 100000 * chileGrowth }
+      ],
+      {
+        x: "x",
+        y: "y"
+      }
+    ),
+  
+    Plot.dot(
+      data_reference_comparison.filter((d) => d[referenceYear] > 10000),
+      {
+     x: `${referenceYear}`,
+      y: `${comparisonYear}`,
+        tip: true,
+        title: (d) => `${d.country} (${d.countryCode})`,
+        fill: (d) => (d.countryCode == "CHL" ? "blue" : "lightgrey"),
+        sort: (d) => (d.countryCode == "CHL" ? 1 : 0)
+      }
+    ),
+    Plot.text([chileRecord], {
+      x: `${referenceYear}`,
+      y: `${comparisonYear}`,
+      text: "countryCode",
+      dy: 10,
+      title: (d) => `${d.countryCode}`,
+      fill: (d) => (d.countryCode == "CHL" ? "blue" : "lightgrey"),
+      sort: (d) => (d.countryCode == "CHL" ? 1 : 0)
+    }),
+    Plot.text(
+      data_reference_comparison.filter((d) =>
+        d.countryCode.match(/SUR|SRB|MLT|SGP|QAT|KWT|JPN|ECU|ARE|DOM/)
+        //d.countryCode.match(/MEX|ARG|ROU|POL|HUN/)
+      ),
+      {
+     x: `${referenceYear}`,
+      y: `${comparisonYear}`,
+        text: "countryCode",
+        dy: 10,
+        title: (d) => `${d.countryCode}`,
+        fill: (d) => (d.countryCode == "CHL" ? "blue" : "grey"),
+        sort: (d) => (d.countryCode == "CHL" ? 1 : 0)
+      }
+    ),
+    Plot.text(
+      [{x:100000,y:10000}],
+      {
+      x: `x`,
+      y: `y`,
+      textAnchor:"end",
+        text: d => "Países que crecieron menos que Chile",
+                fill:"grey",
+
+        fontSize:18,
+        dy:-20,
+  
+      }
+    ),   Plot.text(
+      [{x:10000 ,y:100000}],
+      {
+      x: `x`,
+      y: `y`,
+      textAnchor:"start",
+        text: d => "Países que crecieron más que Chile",
+        fill:"grey",
+        fontSize:18,
+        dx:10,
+        dy:20,
+  
+      }
+    )
+  ]
+})
+return {plotBubble};
+}});
+
+define({id: "6c8b9ff9", inline: true, inputs: ["plotBubble","display"], body: async (plotBubble,display) => {
+display(await(
+plotBubble
+))
+}});
+
+define({id: "c0f23bb4-1", inline: true, inputs: ["referenceYear","display"], body: async (referenceYear,display) => {
+display(await(
+referenceYear
+))
+}});
+
+define({id: "0f8ac221", inline: true, inputs: ["d3","referenceIncome","display"], body: async (d3,referenceIncome,display) => {
+display(await(
+d3.format("$,d")(referenceIncome)
+))
+}});
+
+define({id: "90eb9932", inline: true, inputs: ["d3","windowDiff","display"], body: async (d3,windowDiff,display) => {
+display(await(
+d3.format(".0%")(windowDiff)
+))
+}});
+
+define({id: "d3ea23da", inline: true, inputs: ["d3","referenceIncome","windowDiff","display"], body: async (d3,referenceIncome,windowDiff,display) => {
+display(await(
+d3.format("$,d")(referenceIncome * (1 - windowDiff))
+))
+}});
+
+define({id: "7ab7dd8c", inline: true, inputs: ["d3","referenceIncome","windowDiff","display"], body: async (d3,referenceIncome,windowDiff,display) => {
+display(await(
+d3.format("$,d")(referenceIncome * (1 + windowDiff))
+))
+}});
+
+define({id: "ba469146", inline: true, inputs: ["html","referenceYear","comparisonYear","_","dataSimilarPorPais","d3","display"], body: async (html,referenceYear,comparisonYear,_,dataSimilarPorPais,d3,display) => {
+display(await(
+html`
+<table>
+<tr><th>País</th><th>PIB per capita ${referenceYear}</th><th>PIB per capita ${comparisonYear}</th><th>Crecimiento (%)</th></tr>
+${_.chain(dataSimilarPorPais).sortBy(d => d.growth).map((d) => html`<tr style="background-color:${d.country=="Chile" && "yellow" || "white"};"><td>${d.country}</td><td>${d3.format("$,d")(d.targetValue)}</td><td>${d.comparisonValue && d3.format("$,d")(d.comparisonValue) || ""}</td><td>${d.growth && d3.format(".2%")(d.growth) || ""}</td></tr>`).value()}
+</table>`
+))
+}});
+
+define({id: "5c549b75", inline: true, inputs: ["plot1","display"], body: async (plot1,display) => {
+display(await(
+plot1
+))
+}});
+
+define({id: "df968cd8", inline: true, inputs: ["p2022","display"], body: async (p2022,display) => {
+display(await(
+p2022
+))
+}});
+
+</script>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<style>
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--sans-serif);
+  margin: 4rem 0 8rem;
+  text-wrap: balance;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 2rem 0;
+  max-width: none;
+  font-size: 14vw;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h2 {
+  margin: 0;
+  max-width: 34em;
+  font-size: 20px;
+  font-style: initial;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--theme-foreground-muted);
+}
+
+@media (min-width: 640px) {
+  .hero h1 {
+    font-size: 90px;
+  }
+}
+
+</style>
+<div class="hero">
+  <h1>PIB per cápita</h1>  
+  <p>Comparación de PIB per cápita de Chile con países de similar ingreso en <span id="cell-c0f23bb4" class="observablehq--loading"></span></p>
+</div>
+<div id="cell-f1ac4c8b" class="observablehq observablehq--block"></div>
+<div id="cell-9b9d4c8e" class="observablehq observablehq--block"></div>
+<div id="cell-eb9ebf7d" class="observablehq observablehq--block"></div>
+<div id="cell-a8229288" class="observablehq observablehq--block"></div>
+<div id="cell-c54cd443" class="observablehq observablehq--block"></div>
+<div id="cell-cccca586" class="observablehq observablehq--block"></div>
+<div id="cell-76cfdafe" class="observablehq observablehq--block"></div>
+<div id="cell-897fbb0b" class="observablehq observablehq--block"></div>
+<div id="cell-ccbbe8db" class="observablehq observablehq--block"></div>
+<div id="cell-d26c9743" class="observablehq observablehq--block"></div>
+<div id="cell-6c4604eb" class="observablehq observablehq--block"></div>
+<div id="cell-d3900913" class="observablehq observablehq--block"></div>
+<div id="cell-b61ec4da" class="observablehq observablehq--block"></div>
+<div id="cell-c6c24b40" class="observablehq observablehq--block"></div>
+<span><div class="card"><span id="cell-6c8b9ff9" class="observablehq--loading"></span></div>
+<div class="card grid-colspan-2">
+<div>En <span id="cell-c0f23bb4-1" class="observablehq--loading"></span> el PIB per capita de Chile era <strong><span id="cell-0f8ac221" class="observablehq--loading"></span></strong> medido en términos de Paridad de Poder Adquisitivo (PPA) a precios constantes de 2017 en dólares internacionales.<p>Los países con un ingreso similar de +/- <span id="cell-90eb9932" class="observablehq--loading"></span> (<span id="cell-d3ea23da" class="observablehq--loading"></span> a <span id="cell-7ab7dd8c" class="observablehq--loading"></span>) eran:</p></div>
+<span id="cell-ba469146" class="observablehq--loading"></span><p>PIB per cápita, PPA (2017 const.)</p></div>
+</span><span><div class="card"><span id="cell-5c549b75" class="observablehq--loading"></span></div>
+<div class="card"><span id="cell-df968cd8" class="observablehq--loading"></span></div>
+</span><p><strong>Indicador</strong>
+PIB per capita, PPP (constant 2017 international $)</p>
+<p>GDP per capita based on purchasing power parity (PPP). PPP GDP is gross domestic product converted to international dollars using purchasing power parity rates. An international dollar has the same purchasing power over GDP as the U.S. dollar has in the United States. GDP at purchaser's prices is the sum of gross value added by all resident producers in the country plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in constant 2017 international dollars.</p>
+<p><strong>Fuente</strong> International Comparison Program, World Bank | World Development Indicators database, World Bank | Eurostat-OECD PPP Programme. https://databank.worldbank.org/source/world-development-indicators/Series/NY.GDP.PCAP.PP.KD</p>
+</main>
+<footer id="observablehq-footer">
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-02-22T21:15:47">Feb 22, 2024</a>.</div>
+</footer>
+</div>
